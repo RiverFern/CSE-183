@@ -1,0 +1,48 @@
+timestamp: 2021-05-20T17:51:34.157465
+CREATE TABLE "py4web_session"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "rkey" CHAR(512),
+    "rvalue" TEXT,
+    "expiration" INTEGER,
+    "created_on" TIMESTAMP,
+    "expires_on" TIMESTAMP
+);
+success!
+timestamp: 2021-05-20T17:51:34.167466
+CREATE TABLE "auth_user"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "email" CHAR(512) UNIQUE,
+    "password" CHAR(512),
+    "first_name" CHAR(512),
+    "last_name" CHAR(512),
+    "sso_id" CHAR(512),
+    "action_token" CHAR(512),
+    "last_password_change" TIMESTAMP,
+    "past_passwords_hash" TEXT
+);
+success!
+timestamp: 2021-05-20T17:51:34.173465
+CREATE TABLE "auth_user_tag_groups"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "path" CHAR(512),
+    "record_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2021-05-20T17:51:34.394467
+CREATE TABLE "posts"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "post_content" CHAR(512),
+    "name" CHAR(512)
+);
+success!
+timestamp: 2021-05-20T17:51:34.402465
+CREATE TABLE "rating"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "post" INTEGER REFERENCES "posts" ("id") ON DELETE CASCADE  ,
+    "rating" INTEGER,
+    "rater" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2021-05-21T18:55:38.072625
+ALTER TABLE "posts" ADD "email" CHAR(512);
+success!

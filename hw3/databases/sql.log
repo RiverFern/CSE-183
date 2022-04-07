@@ -1,0 +1,96 @@
+timestamp: 2021-04-19T10:55:22.650732
+CREATE TABLE "py4web_session"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "rkey" CHAR(512),
+    "rvalue" TEXT,
+    "expiration" INTEGER,
+    "created_on" TIMESTAMP,
+    "expires_on" TIMESTAMP
+);
+success!
+timestamp: 2021-04-19T10:55:22.660731
+CREATE TABLE "auth_user"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "email" CHAR(512) UNIQUE,
+    "password" CHAR(512),
+    "first_name" CHAR(512),
+    "last_name" CHAR(512),
+    "sso_id" CHAR(512),
+    "action_token" CHAR(512),
+    "last_password_change" TIMESTAMP,
+    "past_passwords_hash" TEXT
+);
+success!
+timestamp: 2021-04-19T10:55:22.667731
+CREATE TABLE "auth_user_tag_groups"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "path" CHAR(512),
+    "record_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2021-04-19T10:55:22.776763
+CREATE TABLE "bird"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "bird_count" INTEGER,
+    "seen_by" CHAR(512)
+);
+success!
+timestamp: 2021-04-19T11:10:29.052376
+ALTER TABLE "bird" ADD "bird_name" CHAR(512);
+timestamp: 2021-04-19T11:10:29.058341
+ALTER TABLE "bird" ADD "weight" INTEGER;
+timestamp: 2021-04-19T11:10:29.066341
+ALTER TABLE "bird" ADD "diet" CHAR(512);
+timestamp: 2021-04-19T11:10:29.071342
+ALTER TABLE "bird" ADD "habitat" CHAR(512);
+timestamp: 2021-04-19T11:10:29.077354
+ALTER TABLE "bird" ADD "n_sightings" INTEGER;
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
